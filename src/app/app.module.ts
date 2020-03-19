@@ -25,7 +25,9 @@ import { LoginComponent } from './user/login/login.component';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({
+      progressBar: true
+    }),
     FormsModule
   ],
   providers: [UserService],

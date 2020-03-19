@@ -7,7 +7,10 @@ import { NgForm } from '@angular/forms';
   styles: []
 })
 export class LoginComponent implements OnInit {
-
+formModel ={
+  Username : '',
+  Password : ''
+}
   onSubmit(f: NgForm) {
     console.log(f.value);  // { first: '', last: '' }
   }
