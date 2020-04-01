@@ -1,5 +1,5 @@
 body{
-    background-color: #04c582;;
+    background-color: #43F1C3;;
 }
 
 input.form-control,input.form-control:focus{
@@ -15,7 +15,7 @@ input.form-control:focus{
 
 button[type=submit].btn{
     border-radius: 20px;
-    background-color: #04c582;
+    background-color: #43F1C3;
     color: #fff;
 }
 
@@ -34,6 +34,7 @@ div.form-group.required>label:first-child:after{
     opacity:1;
 }
 
+
 .wrapper {
     display: flex;
     align-items: center;
@@ -47,10 +48,10 @@ div.form-group.required>label:first-child:after{
     -webkit-border-radius: 10px 10px 10px 10px;
     border-radius: 10px 10px 10px 10px;
     background: #2e3137;
-    padding: 30px;
+    padding: 50px;
     width: 90%;
     max-width: 450px;
-    position: relative;
+    position: bottom;
     padding: 0px;
     -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
     box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
@@ -79,6 +80,11 @@ div.form-group.required>label:first-child:after{
 
   .tab-header h2:focus {
       outline: none;
+  }
+  .form-group h3{
+      text-align: center;
+      font-size: 16px;
+      color: lightskyblue;
   }
 
   form{
