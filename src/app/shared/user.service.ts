@@ -44,6 +44,10 @@ export class UserService {
   login(formData){
     return this.http.post(this.BaseURI + '/ApplicationUser/Login', formData);
   }
+  
+  passwordforget(formData){
+    return this.http.post(this.BaseURI + '/ApplicationUser/Passwordforget', formData)
+  }
 
   getUserProfile(){
     return this.http.get(this.BaseURI+ '/UserProfile');
