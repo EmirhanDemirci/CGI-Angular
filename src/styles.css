@@ -85,6 +85,7 @@ div.form-group.required>label:first-child:after{
       text-align: center;
       font-size: 16px;
       color: lightskyblue;
+      cursor: pointer;
   }
 
   form{

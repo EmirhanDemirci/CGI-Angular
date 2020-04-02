@@ -16,6 +16,7 @@ import { AuthInterceptor } from './auth/auth.interceptor';
 import { ProfilepageComponent } from './profilepage/profilepage.component';
 import { DetailsComponent } from './profilepage/details/details.component';
 import { ConnectionsComponent } from './profilepage/connections/connections.component';
+import { PasswordforgetComponent } from './user/passwordforget/passwordforget.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ConnectionsComponent } from './profilepage/connections/connections.comp
     HomeComponent,
     ProfilepageComponent,
     DetailsComponent,
-    ConnectionsComponent
+    ConnectionsComponent,
+    PasswordforgetComponent
   ],
   imports: [
     BrowserModule,

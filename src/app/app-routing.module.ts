@@ -8,6 +8,7 @@ import { AuthGuard } from './auth/auth.guard';
 import { ProfilepageComponent } from './profilepage/profilepage.component';
 import { DetailsComponent } from './profilepage/details/details.component';
 import { ConnectionsComponent } from './profilepage/connections/connections.component';
+import { PasswordforgetComponent } from './user/passwordforget/passwordforget.component';
 
 const routes: Routes = [
 
@@ -16,7 +17,8 @@ const routes: Routes = [
     path: 'user', component: UserComponent,
     children: [
       { path: 'registration', component: RegistrationComponent },
-      { path: 'login', component: LoginComponent }
+      { path: 'login', component: LoginComponent },
+      { path: 'passwordforget', component: PasswordforgetComponent}
     ]
   },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },

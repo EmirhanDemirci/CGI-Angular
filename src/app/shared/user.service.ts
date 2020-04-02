@@ -20,6 +20,11 @@ export class UserService {
     }, { validator: this.comparePasswords })
   });
 
+  formModel2 = this.fb.group({
+    Email: ['', Validators.email],
+  });
+
+
   comparePasswords(fb: FormGroup) {
     const confirmPasswordCtrl = fb.get('ConfirmPassword');
     if (confirmPasswordCtrl.errors == null || 'passwordMismatch' in confirmPasswordCtrl.errors) {
@@ -43,6 +48,10 @@ export class UserService {
 
   login(formData){
     return this.http.post(this.BaseURI + '/ApplicationUser/Login', formData);
+  }
+  
+  passwordforget(formData){
+    return this.http.post(this.BaseURI + '/ApplicationUser/Passwordforget', formData)
   }
 
   getUserProfile(){
