@@ -20,6 +20,11 @@ export class UserService {
     }, { validator: this.comparePasswords })
   });
 
+  formModel2 = this.fb.group({
+    Email: ['', Validators.email],
+  });
+
+
   comparePasswords(fb: FormGroup) {
     const confirmPasswordCtrl = fb.get('ConfirmPassword');
     if (confirmPasswordCtrl.errors == null || 'passwordMismatch' in confirmPasswordCtrl.errors) {
