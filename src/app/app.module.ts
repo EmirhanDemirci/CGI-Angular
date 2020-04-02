@@ -17,6 +17,7 @@ import { ProfilepageComponent } from './profilepage/profilepage.component';
 import { DetailsComponent } from './profilepage/details/details.component';
 import { ConnectionsComponent } from './profilepage/connections/connections.component';
 import { PasswordforgetComponent } from './user/passwordforget/passwordforget.component';
+import { RoosterPageComponent } from './rooster-page/rooster-page.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { PasswordforgetComponent } from './user/passwordforget/passwordforget.co
     ProfilepageComponent,
     DetailsComponent,
     ConnectionsComponent,
-    PasswordforgetComponent
+    PasswordforgetComponent,
+    RoosterPageComponent
   ],
   imports: [
     BrowserModule,
