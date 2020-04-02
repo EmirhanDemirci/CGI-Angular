@@ -5,9 +5,12 @@ import { RegistrationComponent } from './user/registration/registration.componen
 import { LoginComponent } from './user/login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './auth/auth.guard';
-
+import { ProfilepageComponent } from './profilepage/profilepage.component';
+import { DetailsComponent } from './profilepage/details/details.component';
+import { ConnectionsComponent } from './profilepage/connections/connections.component';
 
 const routes: Routes = [
+
   { path: '', redirectTo: '/user/login', pathMatch: 'full' },
   {
     path: 'user', component: UserComponent,
@@ -16,7 +19,16 @@ const routes: Routes = [
       { path: 'login', component: LoginComponent }
     ]
   },
-  {path: 'home', component:HomeComponent,canActivate:[AuthGuard]}
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  {
+    path: 'profilepage', component: ProfilepageComponent,
+    children: [
+      { path: 'details', component: DetailsComponent },
+      { path: 'connections', component: ConnectionsComponent }
+    ]
+  },
+
+
 ];
 
 @NgModule({

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<head>
+    <style>
+        .center {
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+    </style>
+    <style>
+        .profile-menu{
+            color:black;
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="col-lg-6 m-auto">
+            <div  class="card bg-white mt-5 p-2">
+                <div class="row">
+                    <div class="col-4 my-auto mx-auto"> <img src="https://i.imgur.com/tdi3NGa.png" class="center">
+                        <h5 class="">Gebruikersnaam</h5>
+                    </div>  
+                </div>
+                <div class="profile-menu">
+                    <div class="wrapper">
+                        <div class="wrapper">
+                            <div class="tab-header">
+                                <h2 routerLink='/profilepage/details' routerLinkActive='active'>Details</h2>
+                                <h2 routerLink='/profilepage/connections' routerLinkActive='active'>Connections</h2>
+                            </div>
+                            <router-outlet></router-outlet>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
