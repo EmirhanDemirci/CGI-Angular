@@ -14,8 +14,6 @@ import { LoginComponent } from './user/login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { ProfilepageComponent } from './profilepage/profilepage.component';
-import { DetailsComponent } from './profilepage/details/details.component';
-import { ConnectionsComponent } from './profilepage/connections/connections.component';
 import { PasswordforgetComponent } from './user/passwordforget/passwordforget.component';
 import { RoosterPageComponent } from './rooster-page/rooster-page.component';
 
@@ -27,8 +25,6 @@ import { RoosterPageComponent } from './rooster-page/rooster-page.component';
     LoginComponent,
     HomeComponent,
     ProfilepageComponent,
-    DetailsComponent,
-    ConnectionsComponent,
     PasswordforgetComponent,
     RoosterPageComponent
   ],
