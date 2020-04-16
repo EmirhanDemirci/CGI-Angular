@@ -10,6 +10,7 @@ import { DetailsComponent } from './profilepage/details/details.component';
 import { ConnectionsComponent } from './profilepage/connections/connections.component';
 import { PasswordforgetComponent } from './user/passwordforget/passwordforget.component';
 import { RoosterPageComponent } from './rooster-page/rooster-page.component';
+import { ShiftPageComponent } from './shift-page/shift-page.component';
 
 const routes: Routes = [
 
@@ -24,6 +25,7 @@ const routes: Routes = [
   },
   {path: 'home', component:HomeComponent,canActivate:[AuthGuard]},
   {path: 'rooster-page', component:RoosterPageComponent},
+  {path: 'shift-page', component:ShiftPageComponent},
   {path: 'profilepage', component: ProfilepageComponent,
     children: [
       { path: 'details', component: DetailsComponent },
