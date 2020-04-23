@@ -1,11 +1,11 @@
 body{
-    background-color: #43F1C3;;
+    background-color: #E61739;;
 }
 
 input.form-control,input.form-control:focus{
-    background-color: #636b7b;
+    background-color: #787D80;
     color: #fff;
-    border: 1px solid #636b7b;
+    border: 1px solid #2E3133;
 
 }
 
@@ -15,7 +15,7 @@ input.form-control:focus{
 
 button[type=submit].btn{
     border-radius: 20px;
-    background-color: #43F1C3;
+    background-color: #FF6A00;
     color: #fff;
 }
 
@@ -60,6 +60,7 @@ div.form-group.required>label:first-child:after{
   /* Tabs */
 .tab-header{
     text-align: center;
+    
 }
 
   .tab-header h2.active {
