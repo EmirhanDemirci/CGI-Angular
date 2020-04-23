@@ -18,6 +18,7 @@ import { DetailsComponent } from './profilepage/details/details.component';
 import { ConnectionsComponent } from './profilepage/connections/connections.component';
 import { PasswordforgetComponent } from './user/passwordforget/passwordforget.component';
 import { RoosterPageComponent } from './rooster-page/rooster-page.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { RoosterPageComponent } from './rooster-page/rooster-page.component';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    FullCalendarModule,
     ToastrModule.forRoot({
       progressBar: true
     }),
