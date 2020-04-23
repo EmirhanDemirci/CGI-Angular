@@ -17,6 +17,7 @@ import { ProfilepageComponent } from './profilepage/profilepage.component';
 import { PasswordforgetComponent } from './user/passwordforget/passwordforget.component';
 import { RoosterPageComponent } from './rooster-page/rooster-page.component';
 import { ShiftPageComponent } from './shift-page/shift-page.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { ShiftPageComponent } from './shift-page/shift-page.component';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    FullCalendarModule,
     ToastrModule.forRoot({
       progressBar: true
     }),
