@@ -18,7 +18,7 @@ formModel ={
 
   ngOnInit() {
     if (localStorage.getItem('token') != null) 
-      this.router.navigateByUrl('/home')
+      this.router.navigateByUrl('/rooster-page')
   }
 
 
@@ -26,7 +26,7 @@ formModel ={
 this.service.login(form.value).subscribe(
   (res:any)=>{
     localStorage.setItem('token',res.token);
-    this.router.navigateByUrl('/home')
+    this.router.navigateByUrl('/rooster-page')
   },
   err =>{
     if(err.status == 400)
