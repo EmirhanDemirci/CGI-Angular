@@ -24,12 +24,7 @@ const routes: Routes = [
   {path: 'home', component:HomeComponent,canActivate:[AuthGuard]},
   {path: 'rooster-page', component:RoosterPageComponent},
   {path: 'shift-page', component:ShiftPageComponent},
-  {path: 'profilepage', component: ProfilepageComponent,
-    children: [
-      { path: 'details', component: DetailsComponent },
-      { path: 'connections', component: ConnectionsComponent }
-    ]
-  },
+  {path: 'profilepage', component: ProfilepageComponent}
 
 
 ];
