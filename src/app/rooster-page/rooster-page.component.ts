@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import dayGridPlugin from '@fullcalendar/daygrid'
+import { Component } from '@angular/core';
+import dayGridPlugin from '@fullcalendar/daygrid';
+
 
   @Component({
   selector: 'app-rooster-page',
