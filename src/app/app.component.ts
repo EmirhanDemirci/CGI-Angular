@@ -12,14 +12,14 @@ export class AppComponent {
   title = 'CGI-Angular';
 
   ngOnInit() {
-    this.service.getUserProfile().subscribe(
-      res =>{ 
-        this.userDetails = res;
-      },
-      err =>{
-        console.log(err);
-      },
-    );
+    // this.service.getUserProfile().subscribe(
+    //   res =>{ 
+    //     this.userDetails = res;
+    //   },
+    //   err =>{
+    //     console.log(err);
+    //   },
+    // );
   }
   onLogout(){
     // Delete the token (Logout)

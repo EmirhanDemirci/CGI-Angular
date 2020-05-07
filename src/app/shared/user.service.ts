@@ -9,11 +9,13 @@ export class UserService {
 
   constructor(private fb: FormBuilder, private http: HttpClient) { }
   readonly BaseURI = 'http://fdemirci.nl:7575/api';
+  readonly LocalURI = 'https://localhost:44357/api'
 
   formModel = this.fb.group({
     UserName: ['', Validators.required],
     Email: ['', Validators.email],
-    FullName: [''],
+    FirstName: ['', Validators.required],
+    LastName: ['', Validators.required],
     Passwords: this.fb.group({
       Password: ['', [Validators.required, Validators.minLength(6)]],
       ConfirmPassword: ['', Validators.required]
@@ -40,21 +42,23 @@ export class UserService {
     const body = {
       UserName: this.formModel.value.UserName,
       Email: this.formModel.value.Email,
-      FullName: this.formModel.value.FullName,
+      FirstName: this.formModel.value.FirstName,
+      Lastname: this.formModel.value.LastName,
       Password: this.formModel.value.Passwords.Password,
     };
-    return this.http.post(this.BaseURI + '/ApplicationUser/Register', body);
+    return this.http.post(this.LocalURI + '/User/Register', body, { observe: 'response'});
   }
 
   login(formData){
-    return this.http.post(this.BaseURI + '/ApplicationUser/Login', formData);
+    return this.http.post(this.LocalURI + '/User/Login', formData);
   }
   
-  passwordforget(formData){
-    return this.http.post(this.BaseURI + '/ApplicationUser/Passwordforget', formData)
-  }
-
   getUserProfile(){
-    return this.http.get(this.BaseURI+ '/UserProfile');
+    return JSON.parse(localStorage.getItem('user'));
   }
+  // passwordforget(formData){
+  //   return this.http.post(this.LocalURI + '/ApplicationUser/Passwordforget', formData)
+  // }
+
+ 
 }

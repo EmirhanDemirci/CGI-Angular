@@ -12,19 +12,13 @@ userDetails;
   constructor(private router: Router,private service:UserService) { }
 
   ngOnInit() {
-    this.service.getUserProfile().subscribe(
-      res =>{ 
-        this.userDetails = res;
-      },
-      err =>{
-        console.log(err);
-      },
-    );
+    this.userDetails = this.service.getUserProfile();
   }
 
   onLogout(){
     // Delete the token (Logout)
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
     this.router.navigate(['/user/login'])
   }
 
