@@ -9,6 +9,7 @@ import { ProfilepageComponent } from './profilepage/profilepage.component';
 import { PasswordforgetComponent } from './user/passwordforget/passwordforget.component';
 import { RoosterPageComponent } from './rooster-page/rooster-page.component';
 import { ShiftPageComponent } from './shift-page/shift-page.component';
+import { AdduserComponent } from './adduser/adduser.component';
 
 const routes: Routes = [
 
@@ -21,10 +22,12 @@ const routes: Routes = [
       { path: 'passwordforget', component: PasswordforgetComponent}
     ]
   },
-  {path: 'home', component:HomeComponent,canActivate:[AuthGuard]},
+  {
+    path: 'home', component:HomeComponent,canActivate:[AuthGuard] },
   {path: 'rooster-page', component:RoosterPageComponent},
   {path: 'shift-page', component:ShiftPageComponent},
-  {path: 'profilepage', component: ProfilepageComponent}
+  {path: 'profilepage', component: ProfilepageComponent},
+  {path: 'adduser', component: AdduserComponent}
 
 
 ];
