@@ -85,7 +85,7 @@ div.form-group.required>label:first-child:after{
   .tab-header h2:focus {
       outline: none;
   }
-  .form-group h3{
+  .form-group h3{  
       text-align: center;
       font-size: 16px;
       color: lightskyblue;
@@ -102,4 +102,17 @@ div.form-group.required>label:first-child:after{
  div.form-group label:first-child{
     text-transform: uppercase;
     font-size: 0.9rem;
+ }
+
+ .adduser-form{
+  
+     
+     width: 20%;
+    
+     padding-top: 5%;
+     margin-left: auto;
+     margin-right: auto;
+ }
+ .input{
+    background-color: white;
  }

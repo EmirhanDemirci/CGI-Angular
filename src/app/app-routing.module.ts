@@ -10,6 +10,7 @@ import { PasswordforgetComponent } from './user/passwordforget/passwordforget.co
 import { RoosterPageComponent } from './rooster-page/rooster-page.component';
 import { ShiftPageComponent } from './shift-page/shift-page.component';
 import { IsPlannerGuard } from './auth/is-planner.guard';
+import { AdduserComponent } from './adduser/adduser.component';
 
 const routes: Routes = [
 
@@ -21,11 +22,16 @@ const routes: Routes = [
       { path: 'passwordforget', component: PasswordforgetComponent}
     ]
   },
-  {path: 'home', component:HomeComponent,canActivate:[AuthGuard]},
+  {
+    path: 'home', component:HomeComponent,canActivate:[AuthGuard] },
   {path: 'rooster-page', component:RoosterPageComponent},
   {path: 'shift-page', component:ShiftPageComponent},
   {path: 'profilepage', component:ProfilepageComponent}
   //canActivate:[IsPlannerGuard] = only admins can enter the page
+  {path: 'profilepage', component: ProfilepageComponent},
+  {path: 'adduser', component: AdduserComponent}
+
+
 ];
 
 @NgModule({
