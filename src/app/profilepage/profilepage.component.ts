@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../shared/user.service';
+//jwt
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Component({
   selector: 'app-profilepage',
@@ -9,16 +11,11 @@ import { UserService } from '../shared/user.service';
 export class ProfilepageComponent implements OnInit {
   userDetails;
   constructor(private router: Router,private service:UserService) { }
-
+  Mytoken;
   ngOnInit() {
-    this.service.getUserProfile().subscribe(
-      res =>{ 
-        this.userDetails = res;
-      },
-      err =>{
-        console.log(err);
-      },
-    );
+    var profile = this.service.getUserProfile()
+    console.log(profile);
+    this.userDetails = profile;
   }
 
   onLogout(){
