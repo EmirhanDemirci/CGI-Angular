@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../../src/app/shared/user.service';
+import { AuthService } from './auth/auth.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,18 +9,12 @@ import { UserService } from '../../src/app/shared/user.service';
 })
 export class AppComponent {
   userDetails;
-  constructor(public router: Router,private service:UserService) { }
+  isPlanner;
+  constructor(public router: Router,private service:UserService, private authService: AuthService) { }
   title = 'CGI-Angular';
 
   ngOnInit() {
-    // this.service.getUserProfile().subscribe(
-    //   res =>{ 
-    //     this.userDetails = res;
-    //   },
-    //   err =>{
-    //     console.log(err);
-    //   },
-    // );
+   this.isPlanner = this.authService.IsPlanner();
   }
   onLogout(){
     // Delete the token (Logout)

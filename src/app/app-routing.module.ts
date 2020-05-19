@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { UserComponent } from './user/user.component';
 import { RegistrationComponent } from './user/registration/registration.component';
 import { LoginComponent } from './user/login/login.component';
-import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './auth/auth.guard';
 import { ProfilepageComponent } from './profilepage/profilepage.component';
 import { PasswordforgetComponent } from './user/passwordforget/passwordforget.component';
@@ -22,15 +21,11 @@ const routes: Routes = [
       { path: 'passwordforget', component: PasswordforgetComponent}
     ]
   },
-  {
-    path: 'home', component:HomeComponent,canActivate:[AuthGuard] },
   {path: 'rooster-page', component:RoosterPageComponent},
   {path: 'shift-page', component:ShiftPageComponent},
-  //canActivate:[IsPlannerGuard] = only admins can enter the page
   {path: 'profilepage', component: ProfilepageComponent},
+  //canActivate:[IsPlannerGuard] = only admins can enter the page
   {path: 'adduser', component: AdduserComponent, canActivate:[IsPlannerGuard]}
-
-
 ];
 
 @NgModule({

@@ -9,7 +9,8 @@ export class UserService {
 
   constructor(private fb: FormBuilder, private http: HttpClient) { }
   readonly BaseURI = 'http://fdemirci.nl:7575/api';
-  readonly LocalURI = 'https://localhost:44357/api'
+  // readonly LocalUriDocker = 'http://localhost:7575/api';
+  // readonly LocalURI = 'https://localhost:44357/api'
 
   formModel = this.fb.group({
     UserName: ['', Validators.required],
@@ -46,18 +47,18 @@ export class UserService {
       Lastname: this.formModel.value.LastName,
       Password: this.formModel.value.Passwords.Password,
     };
-    return this.http.post(this.LocalURI + '/User/Register', body, { observe: 'response'});
+    return this.http.post(this.BaseURI + '/User/Register', body, { observe: 'response'});
   }
 
   login(formData){
-    return this.http.post(this.LocalURI + '/User/Login', formData);
+    return this.http.post(this.BaseURI + '/User/Login', formData);
   }
   
   getUserProfile(){
     return JSON.parse(localStorage.getItem('user'));
   }
   // passwordforget(formData){
-  //   return this.http.post(this.LocalURI + '/ApplicationUser/Passwordforget', formData)
+  //   return this.http.post(this.BaseURI + '/ApplicationUser/Passwordforget', formData)
   // }
 
  

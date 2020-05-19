@@ -3,6 +3,7 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from
 import { Observable } from 'rxjs';
 //jwt
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,27 +11,17 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 
 export class IsPlannerGuard implements CanActivate {
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private authService: AuthService) {
   }
    Mytoken;
 
-   //Checkt in de JWT of het een gebruiker of planner is.
-    canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): boolean {
-      var num = new Number(1);
-      var myToken = localStorage.getItem("token");
-      const jwtHelper = new JwtHelperService();
-      const output = jwtHelper.decodeToken(myToken);
-      this.Mytoken = output.Planner;
-      var number = this.Mytoken;
-      console.log(this.Mytoken);
-  
-        if(this.Mytoken == num)
-        return true
-        else{
-          this.router.navigate(['rooster-page'])
-          return false
-        }
+  //Checkt in de JWT of het een gebruiker of planner is.
+  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+    if (!this.authService.IsPlanner())
+    {
+      this.router.navigate(['rooster-page'])
+      return false;
     }
+    return true;
+  }
 }

@@ -10,13 +10,16 @@
         <label>Email</label>
         <input class="form-control" formControlName="Email">
         <label class="text-danger"
-            *ngIf="service.formModel.get('Email').touched && service.formModel.get('Email').errors?.email">invalid
-            email
+            *ngIf="service.formModel.get('Email').touched && service.formModel.get('Email').errors?.email">invalid email
             address</label>
     </div>
     <div class="form-group input">
-        <label>FullName</label>
-        <input class="form-control" formControlName="FullName">
+        <label>Firstname</label>
+        <input class="form-control" formControlName="FirstName">
+    </div>
+    <div class="form-group input">
+        <label>Lastname</label>
+        <input class="form-control" formControlName="LastName">
     </div>
     <div formGroupName="Passwords">
         <div class="form-group input">

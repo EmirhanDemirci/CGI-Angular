@@ -11,7 +11,6 @@ import { UserComponent } from './user/user.component';
 import { RegistrationComponent } from './user/registration/registration.component';
 import { UserService } from './shared/user.service';
 import { LoginComponent } from './user/login/login.component';
-import { HomeComponent } from './home/home.component';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { ProfilepageComponent } from './profilepage/profilepage.component';
 import { PasswordforgetComponent } from './user/passwordforget/passwordforget.component';
@@ -26,7 +25,6 @@ import { AdduserComponent } from './adduser/adduser.component';
     UserComponent,
     RegistrationComponent,
     LoginComponent,
-    HomeComponent,
     ProfilepageComponent,
     PasswordforgetComponent,
     RoosterPageComponent,
