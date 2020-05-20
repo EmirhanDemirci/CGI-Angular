@@ -15,32 +15,20 @@ export class AdduserComponent implements OnInit {
     this.service.formModel.reset();
   }
 
+
   onSubmit() {
     this.service.register().subscribe(
       (res: any) => {
-        if (res.succeeded) {
+        if (res.status == 200) {
           this.service.formModel.reset();
           this.toastr.success('New user created', 'Registration successful');
-        } else {
-          res.errors.forEach(element => {
-            switch (element.code) {
-              case 'DuplicateUserName':
-                // Username is already taken
-                this.toastr.error('Username is already taken', 'Registration failed');
-                break;
-
-              default:
-                // Registration is failed.
-                this.toastr.error(element.description, 'Registration failed');
-                break;
-            }
-          });
-        }
+        } 
       },
       err => {
+        this.toastr.error(err.error.message, 'Registration failed');
         console.log(err);
       }
     );
   }
-
 }
+
