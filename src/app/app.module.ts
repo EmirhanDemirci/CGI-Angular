@@ -18,6 +18,7 @@ import { PasswordforgetComponent } from './user/passwordforget/passwordforget.co
 import { RoosterPageComponent } from './rooster-page/rooster-page.component';
 import { ShiftPageComponent } from './shift-page/shift-page.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
+import { IncidentComponent } from './incident/incident.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { FullCalendarModule } from '@fullcalendar/angular';
     ProfilepageComponent,
     PasswordforgetComponent,
     RoosterPageComponent,
-    ShiftPageComponent
+    ShiftPageComponent,
+    IncidentComponent
   ],
   imports: [
     BrowserModule,
