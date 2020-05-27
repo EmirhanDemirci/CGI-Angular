@@ -16,11 +16,24 @@ export class ShiftPageComponent implements OnInit {
 
   CallSweetalert(){
     Swal.fire({
-      title: 'Error!',
-      text: 'Do you want to continue',
-      icon: 'error',
-      confirmButtonText: 'Cool'
+      title: 'Pay attention!',
+      text: "Are you sure that you want to take over this shift?",
+      icon: 'info',
+      showCancelButton: true,
+      confirmButtonColor: 'green',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes'
+    }).then((result) => {
+      if (result.value) {
+        Swal.fire(
+          'Succeeded',
+          'The shift has been taken over!',
+          'success'
+        )
+      }
     })
   }
-
+  DeleteDiv(){
+    
+  }
 }
