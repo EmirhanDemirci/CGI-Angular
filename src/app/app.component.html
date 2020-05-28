@@ -9,7 +9,6 @@
         <a style="color: white" class="nav-item nav-link" href="profilepage">Profile</a>
         <a style="color: white" class="nav-item nav-link" href="shift-page">Shifts</a>
         <a style="color: white" class="nav-item nav-link" href="incidentpage">Incident</a>
-        <button style="margin-left: 580%;" *ngIf="router.url == '/rooster-page' || router.url == '/profilepage' || router.url == '/shift-page'" class="btn btn-danger my-2 my-sm-0" (click)="onLogout()">Logout</button>
         <!-- Have to chamnge -->
         <a *ngIf="isPlanner" style="color: white" class="nav-item nav-link" href="adduser">Planner</a>
         <a *ngIf="router.url != '/user/login'" class="btn btn-danger my-2 my-sm-0" (click)="onLogout()">Logout</a>

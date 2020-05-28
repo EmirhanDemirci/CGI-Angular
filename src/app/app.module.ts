@@ -33,8 +33,7 @@ import { IncidentComponent } from './incident/incident.component';
     PasswordforgetComponent,
     RoosterPageComponent,
     ShiftPageComponent,
-    IncidentComponent
-    ShiftPageComponent,
+    IncidentComponent,
     AdduserComponent,
     ManageuserComponent
   ],

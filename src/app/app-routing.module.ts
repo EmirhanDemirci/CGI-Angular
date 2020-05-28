@@ -27,9 +27,8 @@ const routes: Routes = [
   {path: 'shift-page', component:ShiftPageComponent},
   {path: 'profilepage', component: ProfilepageComponent},
   //canActivate:[IsPlannerGuard] = only admins can enter the page
-  {path: 'adduser', component: AdduserComponent},
-  {path: 'manageuser', component: ManageuserComponent} //needs planner guard at some point
-  {path: 'profilepage', component: ProfilepageComponent},
+  {path: 'adduser', component: AdduserComponent, canActivate:[IsPlannerGuard]},
+  {path: 'manageuser', component: ManageuserComponent}, //needs planner guard at some point
   {path: 'incidentpage', component: IncidentComponent}
 
 
