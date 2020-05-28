@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { AuthService } from '../auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(private fb: FormBuilder, private http: HttpClient) { }
+  constructor(private fb: FormBuilder, private http: HttpClient, private authService: AuthService) { }
   readonly BaseURI = 'http://fdemirci.nl:7575/api';
   // readonly LocalUriDocker = 'http://localhost:7575/api';
   // readonly LocalURI = 'https://localhost:44357/api'
@@ -57,9 +58,11 @@ export class UserService {
   getUserProfile(){
     return JSON.parse(localStorage.getItem('user'));
   }
-  // passwordforget(formData){
-  //   return this.http.post(this.BaseURI + '/ApplicationUser/Passwordforget', formData)
-  // }
-
- 
+  //Posting a profile image (Not working yet)
+  postFile(fileToUpload){
+    var userId = this.authService.GetUser().id;
+    const formData: FormData = new FormData();
+    formData.append('fileToUpload', fileToUpload, fileToUpload.name)
+    return this.http.post(`${this.BaseURI}/File/upload/${userId}`, formData)
+  }
 }

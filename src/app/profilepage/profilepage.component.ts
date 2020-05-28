@@ -10,8 +10,11 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 })
 export class ProfilepageComponent implements OnInit {
   userDetails;
-  constructor(private router: Router,private service:UserService) { }
+  imageUrl: string = "/assets/img/ProfilePage.png";
   Mytoken;
+  fileToUpload: File = null;
+
+  constructor(private router: Router,private service:UserService) { }
   ngOnInit() {
     var profile = this.service.getUserProfile()
     console.log(profile);
@@ -24,4 +27,24 @@ export class ProfilepageComponent implements OnInit {
     this.router.navigate(['/user/login'])
   }
 
+  handleFileInput(file: FileList){
+    this.fileToUpload = file.item(0);
+    var reader = new FileReader();
+    reader.onload = (event:any) => {
+      this.imageUrl = event.target.result;
+    }
+    reader.readAsDataURL(this.fileToUpload);
+  }
+
+    //Note done yet
+    onSubmit(Image) {
+      console.log(this.fileToUpload);
+      this.service.postFile(this.fileToUpload).subscribe(
+        data =>{
+          console.log(data);
+          console.log('done');
+          Image.value = null;
+        }
+      );
+    }
 }

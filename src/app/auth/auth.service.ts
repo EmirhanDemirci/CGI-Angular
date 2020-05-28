@@ -20,4 +20,9 @@ export class AuthService {
       return false;
     }
   }
+
+  GetUser() {
+    return JSON.parse(localStorage.getItem("user"));
+  }
+  
 }
