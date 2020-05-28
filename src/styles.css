@@ -103,3 +103,14 @@ div.form-group.required>label:first-child:after{
     text-transform: uppercase;
     font-size: 0.9rem;
  }
+ .buttonincident{
+     position: relative;
+     text-align: center;
+ }
+
+ .incident-card {
+    max-width: 400px;
+  }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
