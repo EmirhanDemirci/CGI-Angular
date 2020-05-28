@@ -10,7 +10,6 @@ import { MatCardModule } from "@angular/material/card";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
-import { RegistrationComponent } from './user/registration/registration.component';
 import { UserService } from './shared/user.service';
 import { LoginComponent } from './user/login/login.component';
 import { AuthInterceptor } from './auth/auth.interceptor';
@@ -27,7 +26,6 @@ import { IncidentComponent } from './incident/incident.component';
   declarations: [
     AppComponent,
     UserComponent,
-    RegistrationComponent,
     LoginComponent,
     ProfilepageComponent,
     PasswordforgetComponent,
