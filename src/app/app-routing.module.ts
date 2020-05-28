@@ -10,6 +10,7 @@ import { RoosterPageComponent } from './rooster-page/rooster-page.component';
 import { ShiftPageComponent } from './shift-page/shift-page.component';
 import { IsPlannerGuard } from './auth/is-planner.guard';
 import { AdduserComponent } from './adduser/adduser.component';
+import { ManageuserComponent } from './manageuser/manageuser.component';
 
 const routes: Routes = [
 
@@ -25,7 +26,8 @@ const routes: Routes = [
   {path: 'shift-page', component:ShiftPageComponent},
   {path: 'profilepage', component: ProfilepageComponent},
   //canActivate:[IsPlannerGuard] = only admins can enter the page
-  {path: 'adduser', component: AdduserComponent, canActivate:[IsPlannerGuard]}
+  {path: 'adduser', component: AdduserComponent},
+  {path: 'manageuser', component: ManageuserComponent} //needs planner guard at some point
 ];
 
 @NgModule({
