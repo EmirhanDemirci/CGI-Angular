@@ -28,7 +28,6 @@ export class UserService {
     Email: ['', Validators.email],
   });
 
-
   comparePasswords(fb: FormGroup) {
     const confirmPasswordCtrl = fb.get('ConfirmPassword');
     if (confirmPasswordCtrl.errors == null || 'passwordMismatch' in confirmPasswordCtrl.errors) {

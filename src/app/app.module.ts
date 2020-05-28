@@ -4,6 +4,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { MatCardModule } from "@angular/material/card";
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +21,7 @@ import { ShiftPageComponent } from './shift-page/shift-page.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { AdduserComponent } from './adduser/adduser.component';
 import { ManageuserComponent } from './manageuser/manageuser.component';
+import { IncidentComponent } from './incident/incident.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,8 @@ import { ManageuserComponent } from './manageuser/manageuser.component';
     ProfilepageComponent,
     PasswordforgetComponent,
     RoosterPageComponent,
+    ShiftPageComponent,
+    IncidentComponent
     ShiftPageComponent,
     AdduserComponent,
     ManageuserComponent
@@ -43,7 +48,8 @@ import { ManageuserComponent } from './manageuser/manageuser.component';
     ToastrModule.forRoot({
       progressBar: true
     }),
-    FormsModule
+    FormsModule,
+    MatCardModule
   ],
   providers: [UserService, {
     provide: HTTP_INTERCEPTORS,
