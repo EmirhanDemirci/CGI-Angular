@@ -35,7 +35,7 @@ export class IncidentComponent {
   
   SendEmail()
   {
-    this.CardCreated = !this.CardCreated;
+    this.service.SendEmail().subscribe;
   }
 
 }
