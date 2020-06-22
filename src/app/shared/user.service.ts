@@ -9,9 +9,9 @@ import { AuthService } from '../auth/auth.service';
 export class UserService {
 
   constructor(private fb: FormBuilder, private http: HttpClient, private authService: AuthService) { }
-  readonly BaseURI = 'http://fdemirci.nl:7575/api';
+  //readonly BaseURI = 'http://fdemirci.nl:7575/api';
   // readonly LocalUriDocker = 'http://localhost:7575/api';
-  // readonly LocalURI = 'https://localhost:44357/api'
+  readonly LocalURI = 'https://localhost:44357/api'
 
   formModel = this.fb.group({
     UserName: ['', Validators.required],
@@ -26,6 +26,9 @@ export class UserService {
 
   formModel2 = this.fb.group({
     Email: ['', Validators.email],
+  });
+  formModel3 = this.fb.group({
+    Title: ['', Validators.required],
   });
 
   comparePasswords(fb: FormGroup) {
@@ -47,11 +50,18 @@ export class UserService {
       Lastname: this.formModel.value.LastName,
       Password: this.formModel.value.Passwords.Password,
     };
-    return this.http.post(this.BaseURI + '/User/Register', body, { observe: 'response'});
+    return this.http.post(this.LocalURI + '/User/Register', body, { observe: 'response'});
+  }
+
+  registerDate() {
+    const body = {
+      Title: this.formModel3.value.Title
+    };
+    return this.http.post(this.LocalURI + '/Schedule/Create', body, { observe: 'response' });
   }
 
   login(formData){
-    return this.http.post(this.BaseURI + '/User/Login', formData);
+    return this.http.post(this.LocalURI + '/User/Login', formData);
   }
   
   getUserProfile(){
@@ -62,6 +72,6 @@ export class UserService {
     var userId = this.authService.GetUser().id;
     const formData: FormData = new FormData();
     formData.append('fileToUpload', fileToUpload, fileToUpload.name)
-    return this.http.post(`${this.BaseURI}/File/upload/${userId}`, formData)
+    return this.http.post(`${this.LocalURI}/File/upload/${userId}`, formData)
   }
 }
