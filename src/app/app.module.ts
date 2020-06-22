@@ -21,6 +21,8 @@ import { FullCalendarModule } from '@fullcalendar/angular';
 import { AdduserComponent } from './adduser/adduser.component';
 import { ManageuserComponent } from './manageuser/manageuser.component';
 import { IncidentComponent } from './incident/incident.component';
+import { MatTableModule } from '@angular/material/table'; 
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,9 @@ import { IncidentComponent } from './incident/incident.component';
       progressBar: true
     }),
     FormsModule,
-    MatCardModule
+    MatCardModule,
+    MatTableModule,
+    MatSortModule,
   ],
   providers: [UserService, {
     provide: HTTP_INTERCEPTORS,

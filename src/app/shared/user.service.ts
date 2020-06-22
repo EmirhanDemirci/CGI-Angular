@@ -9,7 +9,7 @@ import { AuthService } from '../auth/auth.service';
 export class UserService {
 
   constructor(private fb: FormBuilder, private http: HttpClient, private authService: AuthService) { }
-  //readonly BaseURI = 'http://fdemirci.nl:7575/api';
+  // readonly BaseURI = 'http://fdemirci.nl:7575/api';
   // readonly LocalUriDocker = 'http://localhost:7575/api';
   readonly LocalURI = 'https://localhost:44357/api'
 
