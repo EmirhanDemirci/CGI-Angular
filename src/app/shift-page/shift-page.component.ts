@@ -1,5 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import Swal from 'sweetalert2';
+import {MatSort} from '@angular/material/sort';
+import { HttpClient } from '@angular/common/http';
+
+export interface Shift{
+  name: string;
+  skill: string;
+  date: string;
+}
 
 @Component({
   selector: 'app-shift-page',
@@ -8,10 +16,16 @@ import Swal from 'sweetalert2';
 })
 export class ShiftPageComponent implements OnInit {
 
-  constructor() { }
+  displayedColumns: string[] = ['name', 'skill', 'date', 'decision'];
 
-  ngOnInit(): void {
-    
+  constructor(private http: HttpClient) {}
+
+  dataSource = new Array(this.http.get('https://localhost:44333/api/cgishifts').subscribe(result => this.dataSource = result))
+
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
+
+  ngOnInit() {
+    this.dataSource.sort = this.sort;
   }
 
   CallSweetalert(){
@@ -30,6 +44,8 @@ export class ShiftPageComponent implements OnInit {
           'The shift has been taken over!',
           'success'
         )
+      }else{
+        this.http.delete('https://localhost:44333/api/cgishifts')
       }
     })
   }
