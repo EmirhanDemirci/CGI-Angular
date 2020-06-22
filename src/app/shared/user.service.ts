@@ -27,9 +27,7 @@ export class UserService {
   formModel2 = this.fb.group({
     Email: ['', Validators.email],
   });
-  formModel3 = this.fb.group({
-    Title: ['', Validators.required],
-  });
+
 
   comparePasswords(fb: FormGroup) {
     const confirmPasswordCtrl = fb.get('ConfirmPassword');
@@ -53,11 +51,9 @@ export class UserService {
     return this.http.post(this.LocalURI + '/User/Register', body, { observe: 'response'});
   }
 
-  registerDate() {
-    const body = {
-      Title: this.formModel3.value.Title
-    };
-    return this.http.post(this.LocalURI + '/Schedule/Create', body, { observe: 'response' });
+  registerDate(body) {
+    var userId = this.authService.GetUser().id;
+    return this.http.post(`${this.LocalURI}/Schedule/${userId}/Create`, body, { observe: 'response' });
   }
 
   login(formData){

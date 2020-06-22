@@ -6,7 +6,7 @@ import timeGrigPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction'; // for dateClick
 import { UserService } from '../shared/user.service';
 import { ToastrService } from 'ngx-toastr';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { title } from 'process';
 import { CalendarValues } from 'src/models/calendar';
 
@@ -15,9 +15,18 @@ import { CalendarValues } from 'src/models/calendar';
   templateUrl: './rooster-page.component.html',
   styles: []
 })
-export class RoosterPageComponent{
+export class RoosterPageComponent {
   Calendar: CalendarValues = new CalendarValues();
-  constructor(public service: UserService, private toastr: ToastrService, private fb: FormBuilder) { }
+  arg: any;
+
+  constructor(public service: UserService, private toastr: ToastrService, private fb: FormBuilder) {
+    this.calenderForm = this.fb.group({
+      title: ['', Validators.required],
+      date: []
+    });
+  }
+
+  calenderForm: FormGroup;
 
   @ViewChild('calendar') calendarComponent: FullCalendarComponent; // the #calendar in the template
 
@@ -40,31 +49,34 @@ export class RoosterPageComponent{
   }
 
   handleDateClick(arg) {
-    this.Calendar.date = arg.dateStr;
-    if (confirm('Would you like to add an event to ' + arg.dateStr + ' ?')) {
-      this.calendarEvents = this.calendarEvents.concat({ // add new event data. must create new array
-        title: 'new task',
-        start: arg.date,
-        allDay: arg.allDay
-      })
-      console.log(this.calendarEvents);
-      this.service.registerDate().subscribe(
-        (res: any) => {
-          if (res.status == 200) {
-            this.service.formModel.reset();
-            this.toastr.success('New user created', 'Registration successful');
-          }
-        },
-        err => {
-          this.toastr.error(err.error.message, 'Date registration failed');
-          console.log(err);
-        }
-      )
-    }
+    this.arg = arg;
+    console.log(arg);
+    this.calenderForm = this.fb.group({
+      title: ['', Validators.required],
+      date: [arg.date]
+    });
   }
 
   onSubmit() {
-    
+    this.calendarEvents = this.calendarEvents.concat({ // add new event data. must create new array
+      title: this.calenderForm.value.title,
+      start: this.arg.date,
+      allDay: this.arg.allDay
+    })
+    console.log(this.calendarEvents);
+    console.log(this.calenderForm.value);
+    this.service.registerDate(this.calenderForm.value).subscribe(
+      (res: any) => {
+        if (res.status == 200) {
+          this.service.formModel.reset();
+          this.toastr.success('New user created', 'Registration successful');
+        }
+      },
+      err => {
+        this.toastr.error(err.error.message, 'Date registration failed');
+        console.log(err);
+      }
+    )
   }
 }
 
