@@ -1,9 +1,9 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import Swal from 'sweetalert2';
-import {MatSort} from '@angular/material/sort';
+import { MatSort } from '@angular/material/sort';
 import { HttpClient } from '@angular/common/http';
 
-export interface Shift{
+export interface Shift {
   name: string;
   skill: string;
   date: string;
@@ -18,17 +18,17 @@ export class ShiftPageComponent implements OnInit {
 
   displayedColumns: string[] = ['name', 'skill', 'date', 'decision'];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
-  dataSource = new Array(this.http.get('https://localhost:44333/api/cgishifts').subscribe(result => this.dataSource = result))
+  dataSource = new Array(this.http.get('https://localhost:44357/api/Shift').subscribe(result => this.dataSource = result))
 
-  @ViewChild(MatSort, {static: true}) sort: MatSort;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
 
   ngOnInit() {
     this.dataSource.sort = this.sort;
   }
 
-  CallSweetalert(){
+  CallSweetalert() {
     Swal.fire({
       title: 'Pay attention!',
       text: "Are you sure that you want to take over this shift?",
@@ -44,12 +44,9 @@ export class ShiftPageComponent implements OnInit {
           'The shift has been taken over!',
           'success'
         )
-      }else{
-        this.http.delete('https://localhost:44333/api/cgishifts')
+      } else {
+        this.http.delete('https://localhost:44357/api/Shift')
       }
     })
-  }
-  DeleteDiv(){
-    
   }
 }
