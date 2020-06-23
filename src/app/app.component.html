@@ -4,16 +4,16 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a style="color: white" class="nav-item nav-link active" href="#">Rooster <span class="sr-only">(current)</span></a>
-        <a style="color: white" class="nav-item nav-link" href="profilepage">Profile</a>
-        <a style="color: white" class="nav-item nav-link" href="shift-page">Shifts</a>
-        <a style="color: white" class="nav-item nav-link" href="incidentpage">Incident</a>
-        <a style="color: white" class="nav-item nav-link" href="manageuser">Manage</a>
-        <!-- Have to chamnge -->
-        <a *ngIf="isPlanner" style="color: white" class="nav-item nav-link" href="adduser">Planner</a>
-        <a *ngIf="router.url != '/user/login'" class="btn btn-danger my-2 my-sm-0" (click)="onLogout()">Logout</a>
-      </div>
+        <div class="navbar-nav">
+            <a style="color: white" class="nav-item nav-link active" href="#">Schedule <span class="sr-only">(current)</span></a>
+            <a style="color: white" class="nav-item nav-link" href="profilepage">Profile</a>
+            <a style="color: white" class="nav-item nav-link" href="shift-page">Shifts</a>
+            <a style="color: white" class="nav-item nav-link" href="incidentpage">Incident</a>
+            <a style="color: white" class="nav-item nav-link" href="manageuser">Manage</a>
+            <!-- Have to chamnge -->
+            <a *ngIf="isPlanner" style="color: white" class="nav-item nav-link" href="adduser">Planner</a>
+            <a *ngIf="router.url != '/user/login'" class="btn btn-danger my-2 my-sm-0" (click)="onLogout()">Logout</a>
+        </div>
     </div>
-  </nav>
+</nav>
 <router-outlet></router-outlet>
