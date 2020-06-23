@@ -27,6 +27,11 @@ export class UserService {
   formModel2 = this.fb.group({
     Email: ['', Validators.email],
   });
+  formModel3 = this.fb.group({
+    Title: ['', Validators],
+    Description: ['', Validators],
+    Email: ['', Validators.email],
+  });
 
 
   comparePasswords(fb: FormGroup) {
@@ -67,6 +72,14 @@ export class UserService {
   GetSchedule(){
     var userId = this.authService.GetUser().id;
     return this.http.get(`${this.LocalURI}/Schedule/${userId}/Get`);
+  }
+  PostIncident(formdata){
+    var userId = this.authService.GetUser().id;
+    return this.http.post(`${this.LocalURI}/Incident/${userId}/Create`, formdata);
+  }
+  GetIncident(){
+    var userId = this.authService.GetUser().id;
+    return this.http.get(`${this.LocalURI}/Incident/${userId}/Get`);
   }
   //Posting a profile image (Not working yet)
   postFile(fileToUpload){

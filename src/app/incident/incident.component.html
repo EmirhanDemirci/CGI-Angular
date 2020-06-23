@@ -1,43 +1,38 @@
 <ng-template #content let-modal>
-  <div class="modal-header">
-    <h4 class="modal-title">Describe the incident</h4>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <div class="form-group">
-      <label>Description</label>
-      <textarea class="form-control" rows="3"></textarea>
-    </div>
-    <div class="form-group">
-      <label>Client Email address</label>
-      <input type="email" class="form-control" placeholder="name@example.com">
-    </div>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
-    <button type="button" class="btn btn-success" (click)="SendEmail()">Send email</button>
-  </div>
+    <form #form='ngForm' class="mb-4" autocomplete="on" (submit)="onSubmit(form)">
+        <div class="modal-header">
+            <h4 class="modal-title">Describe the incident</h4>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label>Title</label>
+                <input class="form-control" #Title="ngModel" name="Title" [(ngModel)]="formModel.Title" />
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <textarea class="form-control" #Description="ngModel" name="Description" [(ngModel)]="formModel.Description" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Client Email address</label>
+                <input class="form-control" type="email" #Email="ngModel" name="Email" [(ngModel)]="formModel.Email" placeholder="name@example.com" />
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+            <button type="submit" class="btn btn-success" (click)="SendEmail()">Send email</button>
+        </div>
+    </form>
 </ng-template>
+
+
+
+
+
 <div class="buttonincident">
-  <button class="btn btn-success" (click)="openPopup(content)">Start Incident</button>
+    <button class="btn btn-success" (click)="openPopup(content)">Start Incident</button>
 </div>
-<div class = "form-group" *ngIf="!CardCreated" >
-  <mat-card class="incident-card">
-  <mat-card-header>
-    <mat-card-title>
-      <h1>{{userDetails.userName}}</h1>
-    </mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <p>
-      Dit is een incident!
-    </p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-button (click)="SendEmail()">DELETE</button>
-  </mat-card-actions>
-</mat-card>
+<div class="form-group" *ngIf="!CardCreated">
 </div>
-  

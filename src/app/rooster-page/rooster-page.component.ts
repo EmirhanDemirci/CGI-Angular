@@ -47,6 +47,7 @@ export class RoosterPageComponent {
   calendarVisible = true;
   calendarPlugins = [dayGridPlugin, timeGrigPlugin, interactionPlugin];
   calendarWeekends = true;
+  selectable = true;
 
 
   toggleVisible() {
@@ -83,7 +84,7 @@ export class RoosterPageComponent {
       (res: any) => {
         if (res.status == 200) {
           this.service.formModel.reset();
-          this.toastr.success('New user created', 'Registration successful');
+          this.toastr.success('New Date created', 'Date successful');
         }
       },
       err => {
