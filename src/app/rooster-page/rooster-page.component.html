@@ -1,1 +1,40 @@
-<full-calendar [plugins]="calendarPlugin"></full-calendar>
+<div class='app'>
+
+    <!-- <div class='app-top'>
+      <button (click)='toggleVisible()'>toggle visible</button>
+      <button (click)='toggleWeekends()'>toggle weekends</button>
+      <button (click)='gotoPast()'>go to a date in the past</button>
+      (also, click a date/time to add an event)
+    </div> -->
+    <div style="margin-top: 3%;" class='app-calendar' *ngIf="calendarVisible">
+
+        <full-calendar #calendar defaultView="dayGridMonth" [header]="{
+          left: 'prev,next today',
+          center: 'title',
+          right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+        }" [plugins]="calendarPlugins" [weekends]="calendarWeekends" [events]="calendarEvents" (dateClick)="handleDateClick($event)" data-toggle="modal" data-target="#exampleModal"></full-calendar>
+    </div>
+
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+                </div>
+                <div class="modal-body">
+                    <form [formGroup]="calenderForm" autocomplete="off" (submit)="onSubmit()">
+                        <input formControlName="title" type="text">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" (click)="onSubmit()" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

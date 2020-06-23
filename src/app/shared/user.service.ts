@@ -28,6 +28,7 @@ export class UserService {
     Email: ['', Validators.email],
   });
 
+
   comparePasswords(fb: FormGroup) {
     const confirmPasswordCtrl = fb.get('ConfirmPassword');
     if (confirmPasswordCtrl.errors == null || 'passwordMismatch' in confirmPasswordCtrl.errors) {
@@ -50,12 +51,22 @@ export class UserService {
     return this.http.post(this.LocalURI + '/User/Register', body, { observe: 'response'});
   }
 
+  registerDate(body) {
+    var userId = this.authService.GetUser().id;
+    return this.http.post(`${this.LocalURI}/Schedule/${userId}/Create`, body, { observe: 'response' });
+  }
+
   login(formData){
     return this.http.post(this.LocalURI + '/User/Login', formData);
   }
   
   getUserProfile(){
     return JSON.parse(localStorage.getItem('user'));
+  }
+  
+  GetSchedule(){
+    var userId = this.authService.GetUser().id;
+    return this.http.get(`${this.LocalURI}/Schedule/${userId}/Get`);
   }
   //Posting a profile image (Not working yet)
   postFile(fileToUpload){
