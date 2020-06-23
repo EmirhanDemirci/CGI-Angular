@@ -35,16 +35,4 @@ export class ProfilepageComponent implements OnInit {
     }
     reader.readAsDataURL(this.fileToUpload);
   }
-
-    //Note done yet
-    onSubmit(Image) {
-      console.log(this.fileToUpload);
-      this.service.postFile(this.fileToUpload).subscribe(
-        data =>{
-          console.log(data);
-          console.log('done');
-          Image.value = null;
-        }
-      );
-    }
 }

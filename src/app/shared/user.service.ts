@@ -27,12 +27,6 @@ export class UserService {
   formModel2 = this.fb.group({
     Email: ['', Validators.email],
   });
-  formModel3 = this.fb.group({
-    Title: ['', Validators],
-    Description: ['', Validators],
-    Email: ['', Validators.email],
-  });
-
 
   comparePasswords(fb: FormGroup) {
     const confirmPasswordCtrl = fb.get('ConfirmPassword');
@@ -53,7 +47,7 @@ export class UserService {
       Lastname: this.formModel.value.LastName,
       Password: this.formModel.value.Passwords.Password,
     };
-    return this.http.post(this.LocalURI + '/User/Register', body, { observe: 'response'});
+    return this.http.post(this.LocalURI + '/User/Register', body, { observe: 'response' });
   }
 
   registerDate(body) {
@@ -61,31 +55,24 @@ export class UserService {
     return this.http.post(`${this.LocalURI}/Schedule/${userId}/Create`, body, { observe: 'response' });
   }
 
-  login(formData){
+  login(formData) {
     return this.http.post(this.LocalURI + '/User/Login', formData);
   }
-  
-  getUserProfile(){
+
+  getUserProfile() {
     return JSON.parse(localStorage.getItem('user'));
   }
-  
-  GetSchedule(){
+
+  GetSchedule() {
     var userId = this.authService.GetUser().id;
     return this.http.get(`${this.LocalURI}/Schedule/${userId}/Get`);
   }
-  PostIncident(formdata){
+  PostIncident(formdata) {
     var userId = this.authService.GetUser().id;
     return this.http.post(`${this.LocalURI}/Incident/${userId}/Create`, formdata);
   }
-  GetIncident(){
+  GetIncident() {
     var userId = this.authService.GetUser().id;
     return this.http.get(`${this.LocalURI}/Incident/${userId}/Get`);
-  }
-  //Posting a profile image (Not working yet)
-  postFile(fileToUpload){
-    var userId = this.authService.GetUser().id;
-    const formData: FormData = new FormData();
-    formData.append('fileToUpload', fileToUpload, fileToUpload.name)
-    return this.http.post(`${this.LocalURI}/File/upload/${userId}`, formData)
   }
 }

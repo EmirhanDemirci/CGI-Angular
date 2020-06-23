@@ -1,10 +1,34 @@
+<div style="height: 20%; width: 50%; margin-left: auto; margin-right: auto;">
+
+    <h1 style="text-align: center;">My Incidents</h1>
+    <table class="table table-striped table-dark table-bordered table-sm">
+        <tr>
+            <th>#</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Sended to</th>
+        </tr>
+
+        <tr *ngFor="let user of incidentDetails">
+            <td>{{user.incidentId}}</td>
+            <td>{{user.title}}</td>
+            <td>{{user.description}}</td>
+            <td>{{user.email}}</td>
+        </tr>
+
+    </table>
+    <div class="buttonincident" style="width: fit-content; margin-left: auto; margin-right: auto;">
+        <button class="btn btn-success" (click)="openPopup(content)">Start Incident</button>
+    </div>
+</div>
+
 <ng-template #content let-modal>
     <form #form='ngForm' class="mb-4" autocomplete="on" (submit)="onSubmit(form)">
         <div class="modal-header">
             <h4 class="modal-title">Describe the incident</h4>
             <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
+                <span aria-hidden="true">&times;</span>
+            </button>
         </div>
         <div class="modal-body">
             <div class="form-group">
@@ -28,11 +52,5 @@
 </ng-template>
 
 
-
-
-
-<div class="buttonincident">
-    <button class="btn btn-success" (click)="openPopup(content)">Start Incident</button>
-</div>
 <div class="form-group" *ngIf="!CardCreated">
 </div>
