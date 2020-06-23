@@ -63,6 +63,11 @@ export class UserService {
   getUserProfile(){
     return JSON.parse(localStorage.getItem('user'));
   }
+  
+  GetSchedule(){
+    var userId = this.authService.GetUser().id;
+    return this.http.get(`${this.LocalURI}/Schedule/${userId}/Get`);
+  }
   //Posting a profile image (Not working yet)
   postFile(fileToUpload){
     var userId = this.authService.GetUser().id;

@@ -17,8 +17,9 @@ import { CalendarValues } from 'src/models/calendar';
 })
 export class RoosterPageComponent {
   Calendar: CalendarValues = new CalendarValues();
-  arg: any;
+ 
 
+  arg: any;
   constructor(public service: UserService, private toastr: ToastrService, private fb: FormBuilder) {
     this.calenderForm = this.fb.group({
       title: ['', Validators.required],
@@ -26,14 +27,27 @@ export class RoosterPageComponent {
     });
   }
 
+  ngOnInit() {
+    this.service.GetSchedule().subscribe(
+      (res: any) => {
+        if (res !== null) {
+          this.calendarEvents = res;
+        }
+      },
+      err => {
+        console.log(err);
+      }
+    )
+  }
+
   calenderForm: FormGroup;
 
   @ViewChild('calendar') calendarComponent: FullCalendarComponent; // the #calendar in the template
-
+  calendarEvents: EventInput[] = [];
   calendarVisible = true;
   calendarPlugins = [dayGridPlugin, timeGrigPlugin, interactionPlugin];
   calendarWeekends = true;
-  calendarEvents: EventInput[] = [];
+
 
   toggleVisible() {
     this.calendarVisible = !this.calendarVisible;
