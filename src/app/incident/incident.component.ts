@@ -50,4 +50,28 @@ export class IncidentComponent implements OnInit {
       }
     )
   }
+  // Delete incident
+  deleteIncident(incidentId: number) {
+    this.service.DeleteIncident(incidentId).subscribe(
+      (res: any) => {
+        console.log(res);
+        this.toastr.success("Succesfull deleted the incident, Mail send", "Incident")
+      },
+      err => {
+        console.log(err);
+      }
+    )
+  }
+    // Delete user
+    completeIncident(incidentId: number) {
+      this.service.CompleteIncident(incidentId).subscribe(
+        (res: any) => {
+          console.log(res);
+          this.toastr.success("Succesfull completed the incident, Mail send", "Incident")
+        },
+        err => {
+          console.log(err);
+        }
+      )
+    }
 }

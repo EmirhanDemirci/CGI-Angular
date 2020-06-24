@@ -75,4 +75,14 @@ export class UserService {
     var userId = this.authService.GetUser().id;
     return this.http.get(`${this.LocalURI}/Incident/${userId}/Get`);
   }
+  DeleteIncident(incidentId: number) {
+    var userId = this.authService.GetUser().id;
+    console.log(incidentId);
+    return this.http.post(`${this.LocalURI}/Incident/${userId}/Delete`, incidentId);
+  }
+  CompleteIncident(incidentId: number) {
+    var userId = this.authService.GetUser().id;
+    console.log(incidentId);
+    return this.http.post(`${this.LocalURI}/Incident/${userId}/Complete`, incidentId);
+  }
 }

@@ -7,6 +7,7 @@
             <th>Title</th>
             <th>Description</th>
             <th>Sended to</th>
+            <th>Mark as</th>
         </tr>
 
         <tr *ngFor="let user of incidentDetails">
@@ -14,6 +15,9 @@
             <td>{{user.title}}</td>
             <td>{{user.description}}</td>
             <td>{{user.email}}</td>
+            <td><button (click)="completeIncident(user.incidentId)" style="margin: 5%;" class="btn btn-success">✔</button>
+                <button (click)="deleteIncident(user.incidentId)" class="btn btn-danger">X</button>
+            </td>
         </tr>
 
     </table>
