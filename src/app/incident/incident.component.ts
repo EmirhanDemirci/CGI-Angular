@@ -56,6 +56,9 @@ export class IncidentComponent implements OnInit {
       (res: any) => {
         console.log(res);
         this.toastr.success("Succesfull deleted the incident, Mail send", "Incident")
+        var selected = this.incidentDetails.find(x => x.incidentId == incidentId);
+        var index = this.incidentDetails.indexOf(selected);
+        this.incidentDetails.splice(index, 1);
       },
       err => {
         console.log(err);
@@ -68,6 +71,9 @@ export class IncidentComponent implements OnInit {
         (res: any) => {
           console.log(res);
           this.toastr.success("Succesfull completed the incident, Mail send", "Incident")
+          var selected = this.incidentDetails.find(x => x.incidentId == incidentId);
+          var index = this.incidentDetails.indexOf(selected);
+          this.incidentDetails.splice(index, 1);
         },
         err => {
           console.log(err);

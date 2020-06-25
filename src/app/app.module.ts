@@ -19,7 +19,6 @@ import { RoosterPageComponent } from './rooster-page/rooster-page.component';
 import { ShiftPageComponent } from './shift-page/shift-page.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { AdduserComponent } from './adduser/adduser.component';
-import { ManageuserComponent } from './manageuser/manageuser.component';
 import { IncidentComponent } from './incident/incident.component';
 import { MatTableModule } from '@angular/material/table'; 
 import { MatSortModule } from '@angular/material/sort';
@@ -34,8 +33,7 @@ import { MatSortModule } from '@angular/material/sort';
     RoosterPageComponent,
     ShiftPageComponent,
     IncidentComponent,
-    AdduserComponent,
-    ManageuserComponent
+    AdduserComponent
   ],
   imports: [
     BrowserModule,

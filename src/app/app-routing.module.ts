@@ -9,7 +9,6 @@ import { RoosterPageComponent } from './rooster-page/rooster-page.component';
 import { ShiftPageComponent } from './shift-page/shift-page.component';
 import { IsPlannerGuard } from './auth/is-planner.guard';
 import { AdduserComponent } from './adduser/adduser.component';
-import { ManageuserComponent } from './manageuser/manageuser.component';
 import { IncidentComponent } from './incident/incident.component';
 
 const routes: Routes = [
@@ -25,8 +24,7 @@ const routes: Routes = [
   {path: 'shift-page', component:ShiftPageComponent},
   {path: 'profilepage', component: ProfilepageComponent},
   //canActivate:[IsPlannerGuard] = only admins can enter the page
-  {path: 'adduser', component: AdduserComponent, canActivate:[IsPlannerGuard]},
-  {path: 'manageuser', component: ManageuserComponent}, //needs planner guard at some point
+  {path: 'adduser', component: AdduserComponent, canActivate:[IsPlannerGuard]}, //needs planner guard at some point
   {path: 'incidentpage', component: IncidentComponent}
 
 
