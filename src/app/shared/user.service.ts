@@ -9,7 +9,7 @@ import { AuthService } from '../auth/auth.service';
 export class UserService {
 
   constructor(private fb: FormBuilder, private http: HttpClient, private authService: AuthService) { }
-  // readonly BaseURI = 'http://fdemirci.nl:7575/api';
+  readonly BaseURI = 'https://cgi-api20200625102726.azurewebsites.net/api';
   // readonly LocalUriDocker = 'http://localhost:7575/api';
   readonly LocalURI = 'https://localhost:44357/api'
 
@@ -47,16 +47,16 @@ export class UserService {
       Lastname: this.formModel.value.LastName,
       Password: this.formModel.value.Passwords.Password,
     };
-    return this.http.post(this.LocalURI + '/User/Register', body, { observe: 'response' });
+    return this.http.post(this.BaseURI + '/User/Register', body, { observe: 'response' });
   }
 
   registerDate(body) {
     var userId = this.authService.GetUser().id;
-    return this.http.post(`${this.LocalURI}/Schedule/${userId}/Create`, body, { observe: 'response' });
+    return this.http.post(`${this.BaseURI}/Schedule/${userId}/Create`, body, { observe: 'response' });
   }
 
   login(formData) {
-    return this.http.post(this.LocalURI + '/User/Login', formData);
+    return this.http.post(this.BaseURI + '/User/Login', formData);
   }
 
   getUserProfile() {
@@ -65,24 +65,24 @@ export class UserService {
 
   GetSchedule() {
     var userId = this.authService.GetUser().id;
-    return this.http.get(`${this.LocalURI}/Schedule/${userId}/Get`);
+    return this.http.get(`${this.BaseURI}/Schedule/${userId}/Get`);
   }
   PostIncident(formdata) {
     var userId = this.authService.GetUser().id;
-    return this.http.post(`${this.LocalURI}/Incident/${userId}/Create`, formdata);
+    return this.http.post(`${this.BaseURI}/Incident/${userId}/Create`, formdata);
   }
   GetIncident() {
     var userId = this.authService.GetUser().id;
-    return this.http.get(`${this.LocalURI}/Incident/${userId}/Get`);
+    return this.http.get(`${this.BaseURI}/Incident/${userId}/Get`);
   }
   DeleteIncident(incidentId: number) {
     var userId = this.authService.GetUser().id;
     console.log(incidentId);
-    return this.http.post(`${this.LocalURI}/Incident/${userId}/Delete`, incidentId);
+    return this.http.post(`${this.BaseURI}/Incident/${userId}/Delete`, incidentId);
   }
   CompleteIncident(incidentId: number) {
     var userId = this.authService.GetUser().id;
     console.log(incidentId);
-    return this.http.post(`${this.LocalURI}/Incident/${userId}/Complete`, incidentId);
+    return this.http.post(`${this.BaseURI}/Incident/${userId}/Complete`, incidentId);
   }
 }
